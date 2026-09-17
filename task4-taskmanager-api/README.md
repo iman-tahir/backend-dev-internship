@@ -17,6 +17,7 @@ restructuring the project.
 
 ## Routes (8 total)
 **Tasks:** `GET /api/tasks`, `GET /api/tasks/:id`, `POST /api/tasks`, `DELETE /api/tasks/:id`
+
 **Users:** `GET /api/users`, `GET /api/users/:id`, `POST /api/users`, `DELETE /api/users/:id`
 
 Any undefined route (e.g. `/api/random`) returns a structured 404 JSON error via the
