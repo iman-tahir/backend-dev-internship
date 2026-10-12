@@ -7,3 +7,9 @@ Tasks from Phase 1: Backend Foundations & Core API Development.
 - [Task 2 — Basic Node.js HTTP Server](./task2-http-server)
 - [Task 3 — Project Structure and Environment Setup](./task3-structure)
 - [Task 4 — Task Manager API](./task4-taskmanager-api)
+- Task 5 — Database Fundamentals
+- [Task 6 — Task Manager API: MongoDB Integration](./task6-taskmanager-api-mongodb-integration)
+
+# Backend Development Internship
+
+Tasks from **Phase 1: Backend Foundations & Core API Development**.
