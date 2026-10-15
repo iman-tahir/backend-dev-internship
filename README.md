@@ -13,6 +13,3 @@ Tasks from Phase 1: Backend Foundations & Core API Development.
 - [Task 8 — E-Commerce Product Catalog API](./task8-ecommerce-api)
 - [Task 9 — Multi-Resource Inventory API](./task9-inventory-api)
 
-# Backend Development Internship
-
-Tasks from **Phase 1: Backend Foundations & Core API Development**.
