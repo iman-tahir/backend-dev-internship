@@ -9,6 +9,9 @@ Tasks from Phase 1: Backend Foundations & Core API Development.
 - [Task 4 — Task Manager API](./task4-taskmanager-api)
 - Task 5 — Database Fundamentals
 - [Task 6 — Task Manager API: MongoDB Integration](./task6-taskmanager-api-mongodb-integration)
+- Task 7 — SQL Database Integration
+- [Task 8 — E-Commerce Product Catalog API](./task8-ecommerce-api)
+- [Task 9 — Multi-Resource Inventory API](./task9-inventory-api)
 
 # Backend Development Internship
 
