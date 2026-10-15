@@ -1,0 +1,1243 @@
+{
+  "info": {
+    "_postman_id": "c7dd8b7d-9f28-4ce3-bef8-cf4b518f6ad3",
+    "name": "Inventory API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "57596933",
+    "_collection_link": "https://go.postman.co/collection/57596933-c7dd8b7d-9f28-4ce3-bef8-cf4b518f6ad3?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Suppliers",
+      "item": [
+        {
+          "name": "Get suppliers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200-Suppliers List",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "284"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"11c-HIAoCvxe/s6kUshUoSWTWkjtEXw\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 03:56:43 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"total\": 1,\n  \"totalPages\": 1,\n  \"count\": 1,\n  \"data\": [\n    {\n      \"_id\": \"6ac865d933062df9ede461bd\",\n      \"name\": \"Tech Supplies Ltd\",\n      \"email\": \"tech@supplies.com\",\n      \"phone\": \"0300-1234567\",\n      \"address\": \"Karachi\",\n      \"createdAt\": \"2026-10-09T03:56:09.863Z\",\n      \"updatedAt\": \"2026-10-09T03:56:09.863Z\",\n      \"__v\": 0\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Duplicate supplier",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "409 - Duplicate Email",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\t{\"name\":\"Tech Supplies Ltd\",\"email\":\"tech@supplies.com\",\"phone\":\"0300-1234567\",\"address\":\"Karachi\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "55"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"37-JNKldxukni4y7aXbJPvRnxGIIOU\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 03:56:29 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"Duplicate value for email\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete supplier with products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "409 - Supplier Has Products",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers/{{supplierId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers",
+                    "{{supplierId}}"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "85"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"55-gr1v38Uy1bNcZtL3SniZEKJAKpM\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 03:59:34 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"Cannot delete supplier: 1 product(s) still reference it\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update supplier",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Resource Updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\r\n{\r\n  \"name\": \"Updated Test Supplier\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers/{{supplierId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers",
+                    "{{supplierId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "231"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"e7-Hv4mIx0ELjxC+maYAGmMwaB369Y\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:06:41 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"_id\": \"6ac865d933062df9ede461bd\",\n    \"name\": \"Updated Test Supplier\",\n    \"email\": \"tech@supplies.com\",\n    \"phone\": \"0300-1234567\",\n    \"address\": \"Karachi\",\n    \"createdAt\": \"2026-10-09T03:56:09.863Z\",\n    \"updatedAt\": \"2026-10-09T04:06:41.222Z\",\n    \"__v\": 0\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Successful deletion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Resource Deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/suppliers/{{supplierId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "suppliers",
+                    "{{supplierId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "30"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1e-SYdLobIh7QjgllqpFN3u6+UIYXE\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:09:11 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Supplier deleted\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "Manages supplier records, including listing, searching, retrieving, creating, updating, and deleting suppliers. Supports search, pagination (page, limit) and sorting (sort). A supplier cannot be deleted while products reference it."
+    },
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "Create product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "201 - Product Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\t{\"name\":\"Wireless Mouse\",\"sku\":\"wm-100\",\"category\":\"Accessories\",\"price\":1500,\"stock\":10,\"supplier\":\"{{supplierId}}\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Products"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "272"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"110-LxwfFaB1XLNcYu8C73NEVPhP12s\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 03:57:08 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"name\": \"Wireless Mouse\",\n    \"sku\": \"WM-100\",\n    \"description\": \"\",\n    \"category\": \"Accessories\",\n    \"price\": 1500,\n    \"stock\": 10,\n    \"supplier\": \"6ac865d933062df9ede461bd\",\n    \"_id\": \"6ac8661433062df9ede461bf\",\n    \"createdAt\": \"2026-10-09T03:57:08.712Z\",\n    \"updatedAt\": \"2026-10-09T03:57:08.712Z\",\n    \"__v\": 0\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Invalid supplier ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "404 - Supplier Not Found",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\r\n{\r\n  \"name\": \"Test Product\",\r\n  \"sku\": \"TEST-INVALID-001\",\r\n  \"description\": \"Testing supplier validation\",\r\n  \"category\": \"Testing\",\r\n  \"price\": 100,\r\n  \"stock\": 10,\r\n  \"supplier\": \"64b000000000000000000000\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/products",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "48"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"30-GDlMoVpcl3uVK3/8N9zLcI8TA24\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 03:58:24 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"Supplier not found\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Filter and sort products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Filtered Products",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/products?minPrice=1000&sort=-price&page=1&limit=5",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "minPrice",
+                      "value": "1000"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "-price"
+                    },
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "5"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "391"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"187-cb0O8sOiSfE/SH26wWoz4GxNYU8\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 03:58:58 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"page\": 1,\n  \"limit\": 5,\n  \"total\": 1,\n  \"totalPages\": 1,\n  \"count\": 1,\n  \"data\": [\n    {\n      \"_id\": \"6ac8661433062df9ede461bf\",\n      \"name\": \"Wireless Mouse\",\n      \"sku\": \"WM-100\",\n      \"description\": \"\",\n      \"category\": \"Accessories\",\n      \"price\": 1500,\n      \"stock\": 10,\n      \"supplier\": {\n        \"_id\": \"6ac865d933062df9ede461bd\",\n        \"name\": \"Tech Supplies Ltd\",\n        \"email\": \"tech@supplies.com\"\n      },\n      \"createdAt\": \"2026-10-09T03:57:08.712Z\",\n      \"updatedAt\": \"2026-10-09T03:57:08.712Z\",\n      \"__v\": 0\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update product",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Resource Updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\r\n{\r\n  \"name\": \"Updated Test Product\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/products/{{productId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products",
+                    "{{productId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "278"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"116-O2pHeWnKVJMeHCN4DRTarmJxwQQ\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:07:19 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"_id\": \"6ac8661433062df9ede461bf\",\n    \"name\": \"Updated Test Product\",\n    \"sku\": \"WM-100\",\n    \"description\": \"\",\n    \"category\": \"Accessories\",\n    \"price\": 1500,\n    \"stock\": 10,\n    \"supplier\": \"6ac865d933062df9ede461bd\",\n    \"createdAt\": \"2026-10-09T03:57:08.712Z\",\n    \"updatedAt\": \"2026-10-09T04:07:18.924Z\",\n    \"__v\": 0\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Successful deletion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Resource Deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/products/{{productId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "products",
+                    "{{productId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "29"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1d-SUOjrQM9v/ZnWfd464qBypgAgyE\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:08:50 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Product deleted\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "Manages product records and their supplier references. Supports search, category and supplier filters, price ranges (minPrice, maxPrice), inStock, pagination and sorting. A valid supplier is required when creating or changing a product's supplier. Products referenced by orders cannot be deleted."
+    },
+    {
+      "name": "Orders",
+      "item": [
+        {
+          "name": "Create order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "201 - Order Created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"customerName\":\"Ali\",\"customerEmail\":\"ali@mail.com\",\"items\":[{\"product\":\"{{productId}}\",\"quantity\":3}]}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/Orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "Orders"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "292"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"124-Sm5pNMrYgNgnpKu97PGWIGmZsRQ\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:00:26 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"customerName\": \"Ali\",\n    \"customerEmail\": \"ali@mail.com\",\n    \"items\": [\n      {\n        \"product\": \"6ac8661433062df9ede461bf\",\n        \"quantity\": 3,\n        \"unitPrice\": 1500\n      }\n    ],\n    \"status\": \"pending\",\n    \"total\": 4500,\n    \"_id\": \"6ac866d933062df9ede461c0\",\n    \"createdAt\": \"2026-10-09T04:00:25.861Z\",\n    \"updatedAt\": \"2026-10-09T04:00:25.861Z\",\n    \"__v\": 0\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Insufficient stock",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "409 - Insufficient Stock",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\t{\"customerName\":\"Asra\",\"customerEmail\":\"asra@mail.com\",\"items\":[{\"product\":\"{{productId}}\",\"quantity\":50}]}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ]
+                }
+              },
+              "status": "Conflict",
+              "code": 409,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "98"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"62-VU6SrWEWdhMI1BXsLd4sLInH+rg\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:01:37 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"Insufficient stock for \\\"Wireless Mouse\\\": requested 50, available 7\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Invalid status transition",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "400 - Invalid Status Transition",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\"status\":\"shipped\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{orderId}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}",
+                    "status"
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "74"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"4a-SI8POmKHSpz1/AllZ4MjLO16VWk\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:02:35 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"success\": false,\n  \"message\": \"Cannot change status from pending to shipped\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Cancel order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Order Cancelled",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\t{\"status\":\"cancelled\"}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{orderId}}/status",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}",
+                    "status"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "294"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"126-MVfs+A9YBps1/5FyTE+/CMjg//k\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:03:14 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"_id\": \"6ac866d933062df9ede461c0\",\n    \"customerName\": \"Ali\",\n    \"customerEmail\": \"ali@mail.com\",\n    \"items\": [\n      {\n        \"product\": \"6ac8661433062df9ede461bf\",\n        \"quantity\": 3,\n        \"unitPrice\": 1500\n      }\n    ],\n    \"status\": \"cancelled\",\n    \"total\": 4500,\n    \"createdAt\": \"2026-10-09T04:00:25.861Z\",\n    \"updatedAt\": \"2026-10-09T04:03:14.306Z\",\n    \"__v\": 0\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Cancel order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Order Cancelled",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders?status=cancelled",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders"
+                  ],
+                  "query": [
+                    {
+                      "key": "status",
+                      "value": "cancelled"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "398"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"18e-Ugu9etTZjxzjq6O/NskVdTqJn5w\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:03:54 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"page\": 1,\n  \"limit\": 10,\n  \"total\": 1,\n  \"totalPages\": 1,\n  \"count\": 1,\n  \"data\": [\n    {\n      \"_id\": \"6ac866d933062df9ede461c0\",\n      \"customerName\": \"Ali\",\n      \"customerEmail\": \"ali@mail.com\",\n      \"items\": [\n        {\n          \"product\": {\n            \"_id\": \"6ac8661433062df9ede461bf\",\n            \"name\": \"Wireless Mouse\",\n            \"sku\": \"WM-100\"\n          },\n          \"quantity\": 3,\n          \"unitPrice\": 1500\n        }\n      ],\n      \"status\": \"cancelled\",\n      \"total\": 4500,\n      \"createdAt\": \"2026-10-09T04:00:25.861Z\",\n      \"updatedAt\": \"2026-10-09T04:03:14.306Z\",\n      \"__v\": 0\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update order",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Resource Updated",
+              "originalRequest": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "\r\n{\r\n  \"shippingAddress\": \"Updated address, Sahiwal\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{orderId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "294"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"126-OzSLJ57V6jXpnhOuXRgpxiYqFxY\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:07:56 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"data\": {\n    \"_id\": \"6ac866d933062df9ede461c0\",\n    \"customerName\": \"Ali\",\n    \"customerEmail\": \"ali@mail.com\",\n    \"items\": [\n      {\n        \"product\": \"6ac8661433062df9ede461bf\",\n        \"quantity\": 3,\n        \"unitPrice\": 1500\n      }\n    ],\n    \"status\": \"cancelled\",\n    \"total\": 4500,\n    \"createdAt\": \"2026-10-09T04:00:25.861Z\",\n    \"updatedAt\": \"2026-10-09T04:07:56.060Z\",\n    \"__v\": 0\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Successful deletion",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": ""
+            }
+          },
+          "response": [
+            {
+              "name": "200 - Resource Deleted",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/orders/{{orderId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "orders",
+                    "{{orderId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "x-powered-by",
+                  "value": "Express"
+                },
+                {
+                  "key": "content-type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "content-length",
+                  "value": "27"
+                },
+                {
+                  "key": "etag",
+                  "value": "W/\"1b-3h1iJnw5+BRsKMAZ5ePvrpuO3qg\""
+                },
+                {
+                  "key": "date",
+                  "value": "Fri, 09 Oct 2026 04:08:32 GMT"
+                },
+                {
+                  "key": "connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "keep-alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n  \"message\": \"Order deleted\"\n}"
+            }
+          ]
+        }
+      ],
+      "description": "Manages customer orders, order retrieval, status transitions and cancellation. Order creation validates product availability and deducts stock. Cancelling an eligible order restores its quantities to stock. Invalid status transitions return 400, while insufficient stock returns 409."
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": ""
+    },
+    {
+      "key": "supplierId",
+      "value": ""
+    },
+    {
+      "key": "productId",
+      "value": ""
+    },
+    {
+      "key": "orderId",
+      "value": ""
+    }
+  ]
+}
