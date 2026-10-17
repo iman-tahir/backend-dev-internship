@@ -13,4 +13,5 @@ Tasks from Phase 1: Backend Foundations & Core API Development.
 - [Task 8 — E-Commerce Product Catalog API](./task8-ecommerce-api)
 - [Task 9 — Multi-Resource Inventory API](./task9-inventory-api)
 - [Task 10 — JWT Authentication](./task10-jwt-demo)
+- [Task 11 — JWT Login System](./task11-jwt-login-system)
 
